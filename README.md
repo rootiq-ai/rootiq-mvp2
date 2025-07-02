@@ -155,6 +155,37 @@ If the automated setup doesn't work:
    sudo -u postgres createuser --createdb --pwprompt ai_user
    ```
 
+## 🔧 Configuration
+
+### Environment Variables
+
+Edit `backend/.env`:
+
+```bash
+# Database Configuration
+DATABASE_URL=postgresql://ai_user:password@localhost:5432/ai_observability
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=ai_observability
+DB_USER=ai_user
+DB_PASSWORD=your_password
+
+# Ollama Configuration
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=llama3
+
+# ChromaDB Configuration
+CHROMA_DB_PATH=./chroma_db
+
+# API Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+DEBUG=True
+
+# CORS Configuration
+ALLOWED_ORIGINS=["http://localhost:8501"],"http://127.0.0.1:8501"]
+```
+
 5. **Run backend**:
    ```bash
    python run.py
@@ -220,36 +251,6 @@ If the automated installation doesn't work:
    ollama pull llama3
    ```
 
-## 🔧 Configuration
-
-### Environment Variables
-
-Edit `backend/.env`:
-
-```bash
-# Database Configuration
-DATABASE_URL=postgresql://ai_user:password@localhost:5432/ai_observability
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=ai_observability
-DB_USER=ai_user
-DB_PASSWORD=your_password
-
-# Ollama Configuration
-OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=llama3
-
-# ChromaDB Configuration
-CHROMA_DB_PATH=./chroma_db
-
-# API Configuration
-API_HOST=0.0.0.0
-API_PORT=8000
-DEBUG=True
-
-# CORS Configuration
-ALLOWED_ORIGINS=http://localhost:8501,http://127.0.0.1:8501
-```
 
 ### Advanced Configuration
 
