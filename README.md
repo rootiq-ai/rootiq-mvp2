@@ -139,6 +139,21 @@ cd ..
    cp .env.example .env
    # Edit .env with your database credentials
    ```
+   ### Database Setup (Manual)
+
+If the automated setup doesn't work:
+
+1. **Install PostgreSQL**:
+   ```bash
+   sudo apt update
+   sudo apt install postgresql postgresql-contrib
+   ```
+
+2. **Create database and user**:
+   ```bash
+   sudo -u postgres createdb ai_observability
+   sudo -u postgres createuser --createdb --pwprompt ai_user
+   ```
 
 5. **Run backend**:
    ```bash
